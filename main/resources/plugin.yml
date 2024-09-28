@@ -1,0 +1,7 @@
+name: MinigamePlugin
+version: '${project.version}'
+main: me.evvv.minigameplugin.MinigamePlugin
+api-version: '1.21'
+authors: [Evvv]
+description: Minigame Plugin
+depend: [WorldEdit]

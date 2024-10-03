@@ -99,9 +99,6 @@ public class MinigamePlugin extends JavaPlugin implements Listener {
 
         // Remove the player from any active lists
         currentPlayers.remove(player);
-
-        // Handle any additional cleanup you might need
-        // e.g., remove from any teams, scoreboards, etc.
     }
 
     @EventHandler
@@ -127,9 +124,9 @@ public class MinigamePlugin extends JavaPlugin implements Listener {
         Bukkit.getScheduler().runTaskLater(this, () -> {
             player.setGameMode(GameMode.SPECTATOR);
             player.teleport(deathLocation);  // Teleport them to their death location
-        }, 1L);  // Schedule it a tick later to ensure smooth transition
+        }, 1L);  // Schedule it a tick later to make sure no bugs happen
 
-        // Remove the player from active game participants
+        // Handles any extra player removal functions
         removePlayerFromGame(player);
     }
 
@@ -240,6 +237,7 @@ public class MinigamePlugin extends JavaPlugin implements Listener {
         minigameRunning = false;  // Set the flag to false
         timerBar.setVisible(false);  // Hide the BossBar
         timerBar.removeAll();  // Remove all players from the BossBar
+        // Need to add win screen for all players still alive(basic) and also any extra minigame handling such as paying out the players etc
         getLogger().info("Minigame stopped.");
     }
 
